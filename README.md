@@ -2,7 +2,7 @@
 
 
 
-## users table
+## users_table
 
 | Column             | Type                | Options                 |
 |--------------------|---------------------|-------------------------|　
@@ -22,7 +22,7 @@
 * has_many  :purchases
 
 
-## items table
+## items_table
 
 | Column                              | Type       | Options           |
 |-------------------------------------|------------|-------------------|
@@ -41,7 +41,7 @@
 - belongs_to :user
 - has_one    :purchase
 
-## Purchase　table
+## Purchase_table
 
 | Column      | Type      | Options           |
 |-------------|-----------|-------------------|
@@ -49,18 +49,16 @@
 | user        | reference | foreign_key: true |
 
 ### Association
+- belongs_to :user
+- belongs_to :item
+- has_one :street_address
 
-- has_many  :user
-- has_one :street address
 
-
-## street address table
+## street_address_table
 
 
 | Column                              | Type       | Options           |
 |-------------------------------------|------------|-------------------|
-| postal_code                         | string     | null: false       |
-| prefectures                         | string     | null: false       |
 | delivery_area_id                    | integer    | null: false       |
 | municipality                        | string     | null: false       |
 | address                             | string     | null: false       |　　　
