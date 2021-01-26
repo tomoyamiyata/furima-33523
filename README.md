@@ -6,7 +6,10 @@
 
 | Column             | Type                | Options                 |
 |--------------------|---------------------|-------------------------|　
-| nick_name           | string              | null: false             |
+
+
+| nick_name          | string              | null: false             |
+
 | first_name         | string              | null: false             |
 | last_name          | string              | null: false             |
 | first_kana         | string              | null: false             |
