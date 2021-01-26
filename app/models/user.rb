@@ -12,8 +12,8 @@ class User < ApplicationRecord
          validates :last_name, presence: true, format:    {with: /\A[ぁ-んァ-ン一-龥]/ } # ここがユーザー本名全角の正規表現 
          validates :first_kana, presence: true, format: {with: /\A[ァ-ヶー－]+\z/ } # ここがフリガナ全角の正規表現
          validates :last_kana, presence: true, format: {with: /\A[ァ-ヶー－]+\z/ } # ここがフリガナ全角の正規表現
-         validates :password_confirmation, presence: true 
-         validates :password, presence: true
+         
+        
 
          
 
