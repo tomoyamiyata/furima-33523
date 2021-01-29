@@ -69,7 +69,6 @@ RSpec.describe User, type: :model do
 
       it "first_kanaがない場合は登録できないこと" do
         @user.first_kana = "" 
-        #binding.pry
         @user.valid?
         expect(@user.errors[:first_kana]).to include("can't be blank")
       end
@@ -157,6 +156,19 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors[:last_kana]).to include("is invalid")
       end
+
+      it 'first_kanaが半角文字だと登録できないこと ' do
+        @user.first_kana =  "ｱｲｳｴｵ"
+        @user.valid?
+        expect(@user.errors[:first_kana]).to include("is invalid")
+      end
+
+      it 'last_kanaが半角文字だと登録できないこと ' do
+        @user.last_kana =  "ｱｲｳｴｵ"
+        @user.valid?
+        expect(@user.errors[:last_kana]).to include("is invalid")
+      end
+
     end
   end
 end

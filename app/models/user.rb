@@ -6,21 +6,23 @@ class User < ApplicationRecord
 
          
         
-        with_options presence: true do
+    with_options presence: true do
           validates :birthday
           validates :nick_name
-          validates :first_name, format: {with: /\A[ぁ-んァ-ン一-龥]/ } # ここがユーザー本名全角の正規表現
-          validates :last_name, format: {with: /\A[ぁ-んァ-ン一-龥]/ } # ここがユーザー本名全角の正規表現 
-          validates :first_kana, format: {with: /\A[ァ-ヶー－]+\z/ } # ここがフリガナ全角の正規表現
-          validates :last_kana, format: {with: /\A[ァ-ヶー－]+\z/ } # ここがフリガナ全角の正規表現
+      with_options format:{with: /\A[ぁ-んァ-ン一-龥]/ } do# ここがユーザー本名全角の正規表現
+          validates :first_name
+          validates :last_name 
+      end  
+      with_options format:{with: /\A[ァ-ヶー－]+\z/ } do # ここがフリガナ全角の正規表現
+          validates :first_kana
+          validates :last_kana
           validates :password, length: { minimum: 6 }, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: "英数字文字6以上"}
-          
+      end    
 
           
-        end
+    end
 
-        #VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-          #validates :email, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
+       
 
          
 
