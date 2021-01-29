@@ -93,11 +93,6 @@ RSpec.describe User, type: :model do
 
       # パスワードの文字数テスト ▼
 
-      it "passwordが6文字以上であれば登録できること" do
-        @user.password = "1234mt"
-        @user.password_confirmation = "1234mt"
-        expect(@user).to be_valid
-      end
 
       it "passwordが5文字以下であれば登録できないこと" do
         @user.password = "123mt"
