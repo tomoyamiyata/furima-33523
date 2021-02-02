@@ -33,11 +33,11 @@
 | product_condition_id                | integer    | null: false       |
 | shipping_charge_id                  | integer    | null: false  　　  | 
 | delivery_area_id                    | integer    | null: false       |
-| estimated_shipping dat_id           | integer    | null: false       |
+| estimated_shipping_dat_id           | integer    | null: false       |
 | user                     　　　      | reference  | foreign_key: true |
 | price                     　　　     | integer    | null: false       |
 | name                     　　　      | string     | null: false       |
-| info                      　　　     | text       | null: false       |
+| introduction              　　　     | text       | null: false       |
 
 
 ### Association
