@@ -20,10 +20,13 @@ class Item < ApplicationRecord
   end
   validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "Out of setting range"}
   validates :price, numericality: { only_integer: true, message: "Half-width number." }
+  validates :delivery_area_id, numericality: { other_than: 0, message: "Select" }
+  
+  with_options numericality: { other_than: 1, message: "Select" } do
   validates :product_condition_id, numericality: { other_than: 1, message: "Select" }
   validates :shipping_charge_id, numericality: { other_than: 1, message: "Select" }
-  validates :delivery_area_id, numericality: { other_than: 0, message: "Select" }
   validates :estimated_shipping_dat_id , numericality: { other_than: 1, message: "Select" }
   validates :category_id, numericality: { other_than: 1, message: "Select" }
+  end
 
 end
