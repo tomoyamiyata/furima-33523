@@ -62,7 +62,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Price Out of setting range")
       end
       it 'priceが¥300以下の場合登録できないこと' do
-      @item.price = "50"
+      @item.price = "299"
       @item.valid?
       expect(@item.errors[:price]).to include("Out of setting range")
       end
