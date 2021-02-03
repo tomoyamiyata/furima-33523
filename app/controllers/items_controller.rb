@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id]).includes(:user)
+   #@item = Item.find(params[:id]).includes(:user)
   end
   
 
@@ -27,10 +27,6 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :introduction, :price, :product_condition_id, :shipping_charge_id, :delivery_area_id, :estimated_shipping_dat_id, :category_id, :image).merge(user_id: current_user.id)
-  end
-
-  def move_to_index
-    redirect_to action: :index unless user_signed_in?
   end
 
 end
