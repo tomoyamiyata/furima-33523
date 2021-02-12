@@ -1,12 +1,11 @@
 class PurchaseController < ApplicationController
-  before_action :authenticate_user!, only: [:index]
+  before_action :authenticate_user!, only: [:index,:create]
   before_action :set_purchase, only:[:index,:create]
+  before_action :if_purchase, only:[:index,:create]
   def index
     @order_address = OrderAddress.new
     @item = Item.find(params[:item_id])
-    if  current_user.id == @item.user_id 
-      redirect_to root_path(@item)
-    end
+ 
 
   
   end
@@ -41,6 +40,13 @@ class PurchaseController < ApplicationController
     @item = Item.find(params[:item_id])
   end
 
+
+  def if_purchase
+
+    if  current_user.id == @item.user_id || @item.purchase != nil
+      
+      redirect_to root_path
+    end
     
 end  
 
