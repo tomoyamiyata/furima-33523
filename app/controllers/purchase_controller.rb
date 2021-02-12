@@ -4,14 +4,11 @@ class PurchaseController < ApplicationController
   before_action :if_purchase, only:[:index,:create]
   def index
     @order_address = OrderAddress.new
-    @item = Item.find(params[:item_id])
- 
-
   
   end
 
   def create
-    @item = Item.find(params[:item_id])
+
     @order_address = OrderAddress.new(purchase_params)
     if @order_address.valid?
       pay_item
