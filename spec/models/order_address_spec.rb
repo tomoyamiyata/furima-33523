@@ -51,8 +51,11 @@ RSpec.describe OrderAddress, type: :model do
       @order_address.valid?
       expect(@order_address.errors.full_messages).to include("City can't be blank")
       end
-
-
+      it 'phonenumberが空では登録できないこと' do
+        @order_address.phone_number = ''
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Phone number can't be blank")
+      end
 
       it 'アイテムIDがなければ登録できないこと' do
       @order_address.item_id = ''
